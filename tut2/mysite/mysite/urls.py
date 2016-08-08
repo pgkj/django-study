@@ -25,7 +25,7 @@ urlpatterns = [
     url(r'^menu/meta/$', meta),
     url(r'^menu/welcome/$', welcome),
     url(r'^restaurants_list/$', list_restaurants),
-    url(r'^comment/(\d{1,2})/$', comment),
+    url(r'^comment/(\d{1,5})/$', comment),
 
 
 #     #app

@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+    <head>
+        <title> Comments </title>
+        <meta charset='utf-8'>
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <h2>Comments on {{ r.name }}</h2>
+        {% if r.comment_set.all %}
+            <p>Totally {{ r.comment_set.all|length }} comments</p>
+            <table class="table table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th>name</th>
+                        <th>date</th>
+                        <th>content</th>
+                    </tr>
+               </thead>
+               <tbody>
+                {% for c in r.comment_set.all %}
+                    <tr>
+                        <td> {{ c.user }} </td>
+                        <td> {{ c.date_time | date:"F j, Y" }} </td>
+                        <td> {{ c.content }} </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No comments</p>
+        {% endif %}
+
+        <br /><br />
+
+        <form action="" method="post">
+            <div class="form-group">
+                <table>
+                    <tr class="form-group">
+                        <td> <label for="user">Name:</label> </td>
+                        <td> <input class="form-control" id="user" type="text" name="user"> </td>
+                    </tr>
+                    <tr class="form-group">
+                        <td> <label for="email">Email:</label> </td>
+                        <td> <input class="form-control" id="email" type="text" name="email"> </td>
+                    </tr>
+                    <tr class="form-group">
+                        <td> <label for="content">Comment:</label> </td>
+                        <td> 
+                            <textarea class="form-control" id="content" rows="10" cols="48" name="content"></textarea>
+                        </td>
+                    </tr>
+                </table>
+                <div class="form-group">
+                    <input class="form-control" type="hidden" name="ok" value="yes">
+                    <input class="form-control" type="submit" value="Submit Comment">
+                </div>
+                    <a href="/restaurants_list/">BACK</a>
+            </div>
+        </form>
+    </body>
+</html>
