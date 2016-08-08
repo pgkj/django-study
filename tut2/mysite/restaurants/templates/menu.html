@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title> Menu </title>
+        <meta charset='utf-8'>
+        <meta name="viewport" content="width=device-width, initial-scale=1" >
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <h2>{{ r.name }} 's Menu</h2>
+        {% if r.food_set.all %}
+            <p>This restaurant has {{r.food_set.all|length}} dishes</p>
+            <table class="table table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Comment</th>
+                        <th>Spicy</th>
+                    </tr>
+                <thead>
+                <tbody>
+                    {% for food in r.food_set.all %}
+                        <tr>
+                            <td>{{food.name}}</td>
+                            <td>{{food.price}}</td>
+                            <td>{{food.comment}}</td>
+                            <td>{% if food.is_spicy %}Yes{% else %}No{% endif %}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>Nothing in this restaurant</p>
+        {% endif %}
+    </body>
+</html>

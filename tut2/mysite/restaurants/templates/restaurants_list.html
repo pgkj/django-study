@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Restaurants List</title>
+		<meta charset='utf-8'>
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<h2>Restaurants List</h2>
+        <h2>Totally {{restaurants|length}} Restaurants</h2>
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th>selected</th>
+					<th>Name</th>
+					<th>Phone</th>
+					<th>Address</th>
+					<th>Add comment</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for r in restaurants %}
+				<tr>
+					<td><a href="/menu/?id={{r.id}}">menu</a></td>
+					<td>{{r.name}}</td>
+					<td>{{r.phone_number}}</td>
+					<td>{{r.address}}</td>
+					<a href="/comment/{{r.id}}/"> comment </a> </td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</body>
+</html>
