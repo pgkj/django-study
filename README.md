@@ -17,7 +17,7 @@
 4. setup django webpack + react
 
 ##Note: 
-The ultimate goal is to set up a front end framework work together with a backend framework. Based on the following reading, and the goal of the project (visualization using webgl and react), at this moment, it seems a ReactJS+Redux front end + Django RESTful backend is a good choice. Whether maintain the state of the UI in front end or backend remains in question.
+The ultimate goal is to set up a front end framework together with a backend framework. Based on the following readings and the goal of the project (visualization using webgl and react), at this moment, it seems a ReactJS+Redux front end + Django RESTful backend is a good choice. Whether maintain the state of the UI in front end or backend remains in question.
 
  * [How the XXXX do I set up Django, Django REST + ReactJS](http://gregblogs.com/how-django-reactjs-and-browserify/)
  * [Lessons learned from buildout a django site with a reactjs front-end](http://reinout.vanrees.org/weblog/2015/08/31/django-site-with-javascript-frontend.html)
